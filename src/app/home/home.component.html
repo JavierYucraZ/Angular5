@@ -1,0 +1,67 @@
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container" style="text-align:center">
+  <br><br><br>
+  <h1>
+    {{ title }}
+  </h1>
+
+<span>Etiqueta ngModel</span>
+<input type="text" [(ngModel)]="persona.nombre">
+<p>{{ persona.nombre }}</p>
+
+  
+<br><br>
+
+</div>
+
+
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Genero</th>
+      <th scope="col">Duracion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let indice of peliculas">
+      <th scope="row">{{ indice.id }}</th>
+      <td>{{ indice.titulo }}</td>
+      <td>{{ indice.genero }}</td>
+      <td>{{ indice.duracion }}</td>
+      <a class="btn btn-warning" (click)="editar(indice)">Editar</a>
+    </tr>
+  </tbody>
+</table>
+
+<a class="btn btn-primary" (click)="formulario()">Agregar Nueva Pelicula</a>
+  </div>
+
+
+  <div class="col-md-4" *ngIf="mostrar_formulario">
+    <input type="text" class="form-control" 
+placeholder="Titulo De La Pelicula"
+[(ngModel)]="pelicula.titulo"> <br>
+
+<input type="text" class="form-control" 
+placeholder="Genero De La Pelicula" 
+[(ngModel)]="pelicula.genero"> <br>
+
+<input type="text" class="form-control" 
+placeholder="Duracion De La Pelicula"
+[(ngModel)]="pelicula.duracion"> <br>
+
+<a class="btn btn-success" (click)="agregar()">Guardar</a>
+<a class="btn btn-warning" (click)="cancelar()">Cancelar</a>
+<a class="btn btn-danger" (click)="eliminar()">Eliminar</a>
+  </div>
+</div>
+<!--
+npm install firebase @angular/fire --save
+
+npm install firebase angularfire2 --save
+-->

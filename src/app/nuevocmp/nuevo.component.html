@@ -1,0 +1,20 @@
+<h2> Mi primer Componente {{ nombre }} </h2>
+
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<ul class="list-group">
+	<li  class="list-group-item list-group-item-success"
+	*ngFor="let indice of lista"
+	>
+		{{ indice.id }}, {{ indice.titulo}} {{indice.descripcion}}
+	</li>
+	</ul>
+
+	<p *ngIf="pregunta">
+		{{ mostrar_si_es_verdadero }}	
+	</p>
+
+</div>
+<div class="col-md-2"></div>
+</div>
